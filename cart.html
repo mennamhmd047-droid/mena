@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumière Paris — حقيبة المشتريات</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'accent': '#C68B77',
+            'gold': '#D4AF37',
+            'nude-light': '#FDF9F6',
+            'nude-surface': '#F7EFE9',
+            'light-primary': '#2C1B18',
+            'light-on-primary': '#FFFFFF',
+            'light-surface': '#FCF8F5',
+            'light-on-surface': '#231B19',
+          },
+          fontFamily: {
+            'display': ['"Cormorant Garamond"', 'serif'],
+            'headline': ['"Cormorant Garamond"', 'serif'],
+            'body': ['"Tajawal"', '"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  
+  <!-- Custom Project Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#FCF8F5] text-[#231B19] antialiased selection:bg-[#C68B77]/20 flex flex-col min-h-screen">
+
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 glass-header border-b border-[#F7EFE9] transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3">
+        <a href="products.html" class="p-2 rounded-full hover:bg-[#F7EFE9] text-[#2C1B18] transition" title="رجوع للمتجر">
+          <span class="material-symbols-outlined text-[24px]">arrow_forward</span>
+        </a>
+        <a href="index.html" class="flex flex-col">
+          <span class="brand-title text-2xl sm:text-3xl font-bold tracking-widest text-[#2C1B18]">LUMIÈRE</span>
+          <span class="text-[9px] tracking-[0.3em] uppercase text-[#C68B77] font-semibold -mt-1">PARIS • BEAUTÉ</span>
+        </a>
+      </div>
+
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="nav-link text-sm font-semibold hover:text-[#C68B77] transition">الرئيسية</a>
+        <a href="products.html" class="nav-link text-sm font-semibold hover:text-[#C68B77] transition">جميع المنتجات</a>
+        <a href="product-detail.html" class="nav-link text-sm font-semibold hover:text-[#C68B77] transition">المنتج الأكثر طلباً</a>
+        <a href="cart.html" class="nav-link active text-sm font-semibold hover:text-[#C68B77] transition">حقيبة التسوق</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a href="cart.html" class="relative flex items-center gap-2 py-2 px-3.5 rounded-full bg-[#2C1B18] text-white hover:bg-black transition shadow-sm">
+          <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+          <span class="text-xs font-bold hidden sm:inline">الحقيبة</span>
+          <span class="cart-count hidden absolute -top-1.5 -right-1.5 w-5 h-5 bg-[#C68B77] text-white text-[11px] font-bold rounded-full items-center justify-center border-2 border-white">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full space-y-8">
+
+    <!-- BREADCRUMBS & HEADING -->
+    <div class="space-y-1">
+      <nav class="flex items-center gap-2 text-xs text-gray-500">
+        <a href="index.html" class="hover:text-[#C68B77]">الرئيسية</a>
+        <span>/</span>
+        <a href="products.html" class="hover:text-[#C68B77]">المنتجات</a>
+        <span>/</span>
+        <span class="text-[#2C1B18] font-bold">حقيبة المشتريات</span>
+      </nav>
+      <h1 class="brand-title text-3xl sm:text-4xl font-bold text-[#2C1B18]">حقيبة التسوق الفاخرة</h1>
+    </div>
+
+    <!-- MAIN CART CONTENT CONTAINER -->
+    <div id="cart-content-wrapper" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Cart Items List (8 Columns) -->
+      <div class="lg:col-span-8 bg-white rounded-2xl border border-[#F7EFE9] p-4 sm:p-6 shadow-sm space-y-4">
+        <div class="flex items-center justify-between pb-4 border-b border-[#F7EFE9]">
+          <h2 class="text-sm font-bold text-[#2C1B18]">المنتجات المختارة (<span id="cart-items-count">0</span>)</h2>
+          <button onclick="clearEntireCart()" class="text-xs text-red-600 hover:underline flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">delete_sweep</span>
+            <span>تفريغ الحقيبة</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Items Container -->
+        <div id="cart-items-container" class="divide-y divide-[#F7EFE9]">
+          <!-- Items injected via renderCart() -->
+        </div>
+      </div>
+
+      <!-- Order Summary Card (4 Columns) -->
+      <div class="lg:col-span-4 bg-white rounded-2xl border border-[#F7EFE9] p-6 shadow-sm space-y-6 sticky top-28">
+        <h2 class="text-base font-bold text-[#2C1B18] pb-3 border-b border-[#F7EFE9]">ملخص الطلب</h2>
+
+        <!-- Promo Code Input -->
+        <div class="space-y-2">
+          <label class="text-xs font-bold text-gray-700">كود الخصم الترويجي</label>
+          <div class="flex items-center gap-2">
+            <input type="text" id="coupon-input" placeholder="LUMIERE10" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-gray-200 uppercase focus:outline-none focus:border-[#C68B77]">
+            <button onclick="applyCoupon()" class="px-4 py-2.5 rounded-xl bg-[#2C1B18] text-white text-xs font-bold hover:bg-black transition shrink-0">
+              تطبيق
+            </button>
+          </div>
+          <p id="coupon-message" class="text-[11px] hidden"></p>
+        </div>
+
+        <!-- Cost Breakdown -->
+        <div class="space-y-3 text-xs text-gray-600">
+          <div class="flex justify-between">
+            <span>المجموع الفرعي:</span>
+            <span id="summary-subtotal" class="font-bold text-[#2C1B18]">0 ر.س</span>
+          </div>
+
+          <div class="flex justify-between" id="discount-row" style="display: none;">
+            <span class="text-emerald-700 font-medium">خصم الكود (10%):</span>
+            <span id="summary-discount" class="font-bold text-emerald-700">-0 ر.س</span>
+          </div>
+
+          <div class="flex justify-between">
+            <span>رسوم الشحن والتوصيل:</span>
+            <span id="summary-shipping" class="font-bold text-emerald-700">مجاني</span>
+          </div>
+
+          <div class="pt-3 border-t border-[#F7EFE9] flex justify-between text-base font-bold text-[#2C1B18]">
+            <span>المبلغ الإجمالي:</span>
+            <span id="summary-total" class="text-xl text-[#C68B77]">0 ر.س</span>
+          </div>
+          <span class="text-[10px] text-gray-400 block text-center">الأسعار تشمل ضريبة القيمة المضافة 15%</span>
+        </div>
+
+        <!-- Checkout Button -->
+        <div class="space-y-3">
+          <a href="checkout.html" class="w-full py-3.5 px-6 rounded-full bg-[#2C1B18] text-white text-center font-bold text-xs tracking-wide hover:bg-black transition shadow-md flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-[18px]">lock</span>
+            <span>متابعة إتمام الطلب والدفع</span>
+          </a>
+
+          <a href="products.html" class="w-full py-3 px-6 rounded-full border border-gray-200 text-[#2C1B18] text-center font-bold text-xs hover:bg-[#F7EFE9] transition block">
+            متابعة التسوق
+          </a>
+        </div>
+
+        <!-- Trust Features -->
+        <div class="p-3 bg-[#FDF9F6] rounded-xl border border-[#F7EFE9] flex items-center gap-3 text-xs text-gray-600">
+          <span class="material-symbols-outlined text-[#C68B77] text-[22px]">verified_user</span>
+          <span>دفع آمن ومشفّر 100% مع ضمان استرجاع ذهبي</span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- EMPTY CART STATE -->
+    <div id="empty-cart-state" class="hidden text-center py-20 bg-white rounded-3xl border border-[#F7EFE9] max-w-2xl mx-auto shadow-sm p-8 space-y-4">
+      <div class="w-20 h-20 mx-auto rounded-full bg-[#F7EFE9] flex items-center justify-center text-[#C68B77]">
+        <span class="material-symbols-outlined text-[44px]">shopping_bag</span>
+      </div>
+      <h2 class="brand-title text-2xl font-bold text-[#2C1B18]">حقيبة التسوق فارغة حالياً</h2>
+      <p class="text-xs sm:text-sm text-gray-500 max-w-sm mx-auto">
+        لم تقومي بإضافة أي منتج للحقيبة بعد. اكتشفي مجموعتنا الفاخرة من مستحضرات التجميل الحصرية.
+      </p>
+      <div class="pt-2 flex justify-center gap-3">
+        <a href="products.html" class="py-3 px-8 rounded-full bg-[#2C1B18] text-white text-xs font-bold hover:bg-black transition shadow-md">
+          استكشاف المتجر والمنتجات
+        </a>
+        <a href="product-detail.html" class="py-3 px-6 rounded-full border border-[#C68B77] text-[#C68B77] text-xs font-bold hover:bg-[#F7EFE9] transition">
+          المنتج الأكثر طلباً
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- LUXURY FOOTER -->
+  <footer class="bg-[#2C1B18] text-[#F5EFEB] pt-14 pb-8 border-t border-[#3A2420] mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-white/10">
+        
+        <div class="space-y-4">
+          <span class="brand-title text-2xl font-bold text-white tracking-widest block">LUMIÈRE PARIS</span>
+          <p class="text-xs text-[#F5EFEB]/70 leading-relaxed">
+            العلامة الرائدة في صياغة مستحضرات التجميل الراقية بمزيج من التراث الباريسي وأحدث تقنيات الجمال العصرية.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-[#C68B77] uppercase tracking-wider mb-4">روابط سريعة</h4>
+          <ul class="space-y-2.5 text-xs text-[#F5EFEB]/80">
+            <li><a href="index.html" class="hover:text-[#C68B77] transition">الصفحة الرئيسية</a></li>
+            <li><a href="products.html" class="hover:text-[#C68B77] transition">متجر المنتجات</a></li>
+            <li><a href="product-detail.html" class="hover:text-[#C68B77] transition">أحمر شفاه ساتان هيدراتينج</a></li>
+            <li><a href="cart.html" class="hover:text-[#C68B77] transition">حقيبة التسوق</a></li>
+            <li><a href="checkout.html" class="hover:text-[#C68B77] transition">إتمام الطلب والدفع</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-[#C68B77] uppercase tracking-wider mb-4">خدمة العملاء</h4>
+          <ul class="space-y-2.5 text-xs text-[#F5EFEB]/80">
+            <li><a href="#" class="hover:text-[#C68B77] transition">تتبع الطلبات</a></li>
+            <li><a href="#" class="hover:text-[#C68B77] transition">سياسة الاستبدال والاسترجاع</a></li>
+            <li><a href="#" class="hover:text-[#C68B77] transition">الأسئلة الشائعة</a></li>
+            <li><a href="#" class="hover:text-[#C68B77] transition">تواصل معنا عبر واتساب</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold text-[#C68B77] uppercase tracking-wider mb-2">النشرة البريدية الحصرية</h4>
+          <p class="text-xs text-[#F5EFEB]/70">اشتركي ليصلك جديد التشكيلات وعروض الخصم الخاصة قبل الجميع.</p>
+          <form onsubmit="event.preventDefault(); showToast('شكراً لاشتراككِ في نشرة لوميير الحصرية!', 'mark_email_read');" class="flex items-center gap-2">
+            <input type="email" required placeholder="بريدك الإلكتروني" class="w-full text-xs px-3.5 py-2.5 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:border-[#C68B77]">
+            <button type="submit" class="py-2.5 px-4 rounded-full bg-[#C68B77] text-white text-xs font-bold hover:bg-white hover:text-[#2C1B18] transition shrink-0">
+              انضمام
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#F5EFEB]/50 gap-4">
+        <p>© 2026 Lumière Paris. جميع الحقوق محفوظة.</p>
+        <div class="flex items-center gap-4 text-sm">
+          <span>مدى</span>
+          <span>Apple Pay</span>
+          <span>Visa / Mastercard</span>
+          <span>تابي وتمارا</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Central JS File -->
+  <script src="js/main.js"></script>
+
+  <!-- Cart Specific Script -->
+  <script>
+    let appliedDiscountRate = 0;
+
+    function renderCart() {
+      const items = Cart.get();
+      const container = document.getElementById('cart-items-container');
+      const countEl = document.getElementById('cart-items-count');
+      const wrapper = document.getElementById('cart-content-wrapper');
+      const emptyState = document.getElementById('empty-cart-state');
+
+      countEl.textContent = Cart.count();
+
+      if (items.length === 0) {
+        wrapper.classList.add('hidden');
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      wrapper.classList.remove('hidden');
+      emptyState.classList.add('hidden');
+
+      container.innerHTML = items.map(item => {
+        const itemTotal = item.price * (item.quantity || 1);
+        return `
+          <div class="py-4 sm:py-5 flex items-center gap-4">
+            <img src="${item.image}" alt="${item.name}" class="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover border border-[#F7EFE9] shrink-0">
+            
+            <div class="grow min-w-0 space-y-1">
+              <h3 class="text-xs sm:text-sm font-bold text-[#2C1B18] truncate">${item.name}</h3>
+              ${item.shade ? `<p class="text-[11px] text-[#C68B77] font-medium">${item.shade}</p>` : ''}
+              <div class="text-xs text-gray-500">${item.price} ر.س للقطعة</div>
+              
+              <div class="flex items-center gap-3 pt-2">
+                <!-- Quantity buttons -->
+                <div class="flex items-center border border-gray-200 rounded-lg overflow-hidden bg-[#FCF8F5]">
+                  <button type="button" onclick="handleQtyChange(${item.id}, '${item.shade}', -1)" class="w-7 h-7 flex items-center justify-center hover:bg-gray-200 text-[#2C1B18] transition">
+                    <span class="material-symbols-outlined text-[16px]">remove</span>
+                  </button>
+                  <span class="w-8 text-center text-xs font-bold text-[#2C1B18]">${item.quantity || 1}</span>
+                  <button type="button" onclick="handleQtyChange(${item.id}, '${item.shade}', 1)" class="w-7 h-7 flex items-center justify-center hover:bg-gray-200 text-[#2C1B18] transition">
+                    <span class="material-symbols-outlined text-[16px]">add</span>
+                  </button>
+                </div>
+
+                <!-- Delete button -->
+                <button type="button" onclick="handleRemoveItem(${item.id}, '${item.shade}')" class="text-gray-400 hover:text-red-500 p-1" title="حذف">
+                  <span class="material-symbols-outlined text-[18px]">delete</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Total for this line -->
+            <div class="text-left shrink-0">
+              <span class="block text-sm sm:text-base font-bold text-[#2C1B18]">${itemTotal} ر.س</span>
+              ${item.originalPrice ? `<span class="block text-[11px] line-through text-gray-400">${item.originalPrice * item.quantity} ر.س</span>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      updateSummary();
+    }
+
+    function handleQtyChange(id, shade, delta) {
+      Cart.updateQty(id, shade, delta);
+      renderCart();
+    }
+
+    function handleRemoveItem(id, shade) {
+      Cart.remove(id, shade);
+      renderCart();
+    }
+
+    function clearEntireCart() {
+      if (confirm('هل أنتِ متأكدة من رغبتك في تفريغ حقيبة التسوق؟')) {
+        Cart.clear();
+        renderCart();
+      }
+    }
+
+    function updateSummary() {
+      const subtotal = Cart.subtotal();
+      const discountRow = document.getElementById('discount-row');
+      const discountEl = document.getElementById('summary-discount');
+      const shippingEl = document.getElementById('summary-shipping');
+      const totalEl = document.getElementById('summary-total');
+      const subtotalEl = document.getElementById('summary-subtotal');
+
+      subtotalEl.textContent = `${subtotal} ر.س`;
+
+      let discountAmount = 0;
+      if (appliedDiscountRate > 0) {
+        discountAmount = Math.round(subtotal * appliedDiscountRate);
+        discountRow.style.display = 'flex';
+        discountEl.textContent = `-${discountAmount} ر.س`;
+      } else {
+        discountRow.style.display = 'none';
+      }
+
+      // Free shipping over 200 SAR, else 25 SAR
+      const shipping = (subtotal >= 200 || subtotal === 0) ? 0 : 25;
+      shippingEl.textContent = shipping === 0 ? 'مجاني' : `${shipping} ر.س`;
+      shippingEl.className = shipping === 0 ? 'font-bold text-emerald-700' : 'font-bold text-[#2C1B18]';
+
+      const finalTotal = Math.max(0, subtotal - discountAmount + shipping);
+      totalEl.textContent = `${finalTotal} ر.س`;
+    }
+
+    function applyCoupon() {
+      const input = document.getElementById('coupon-input');
+      const msg = document.getElementById('coupon-message');
+      const code = input.value.trim().toUpperCase();
+
+      if (code === 'LUMIERE10') {
+        appliedDiscountRate = 0.10;
+        msg.textContent = '✓ تم تطبيق كود الخصم 10% بنجاح!';
+        msg.className = 'text-[11px] text-emerald-600 font-bold block';
+        showToast('تم تفعيل كود الخصم 10%', 'loyalty');
+      } else if (code === '') {
+        msg.textContent = 'الرجاء إدخال كود الخصم أولاً';
+        msg.className = 'text-[11px] text-red-500 font-bold block';
+      } else {
+        msg.textContent = 'عذراً، هذا الكود غير صالح أو منتهي الصلاحية';
+        msg.className = 'text-[11px] text-red-500 font-bold block';
+      }
+
+      updateSummary();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // If cart is empty on first visit, seed it with the Hero Product so it looks rich right away!
+      if (Cart.get().length === 0) {
+        const heroProduct = LUMIERE_PRODUCTS[0];
+        Cart.add({
+          id: heroProduct.id,
+          name: heroProduct.name,
+          price: heroProduct.price,
+          originalPrice: heroProduct.originalPrice,
+          image: heroProduct.image,
+          shade: heroProduct.shade,
+          quantity: 1
+        });
+      }
+
+      renderCart();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumière Paris — متجر مستحضرات التجميل الفاخرة</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'accent': '#C68B77',
+            'gold': '#D4AF37',
+            'nude-light': '#FDF9F6',
+            'nude-surface': '#F7EFE9',
+            'light-primary': '#2C1B18',
+            'light-on-primary': '#FFFFFF',
+            'light-surface': '#FCF8F5',
+            'light-on-surface': '#231B19',
+          },
+          fontFamily: {
+            'display': ['"Cormorant Garamond"', 'serif'],
+            'headline': ['"Cormorant Garamond"', 'serif'],
+            'body': ['"Tajawal"', '"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  
+  <!-- Custom Project Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#FCF8F5] text-[#231B19] antialiased selection:bg-[#C68B77]/20 flex flex-col min-h-screen">
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="bg-[#2C1B18] text-[#F5EFEB] py-2 px-4 text-center text-xs font-medium tracking-wide flex items-center justify-center gap-2">
+    <span class="material-symbols-outlined text-[16px] text-[#C68B77]">auto_awesome</span>
+    <span>شحن مجاني لكافة مدن المملكة للطلبات فوق 200 ر.س | كود الخصم: <strong class="text-[#D4AF37] tracking-wider">LUMIERE10</strong></span>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 glass-header border-b border-[#F7EFE9] transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Mobile Menu Button & Brand -->
+      <div class="flex items-center gap-3">
+        <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-full hover:bg-[#F7EFE9] text-[#2C1B18] transition">
+          <span class="material-symbols-outlined text-[26px]">menu</span>
+        </button>
+        <a href="index.html" class="flex flex-col">
+          <span class="brand-title text-2xl sm:text-3xl font-bold tracking-widest text-[#2C1B18]">LUMIÈRE</span>
+          <span class="text-[9px] tracking-[0.3em] uppercase text-[#C68B77] font-semibold -mt-1">PARIS • BEAUTÉ</span>
+        </a>
+      </div>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="nav-link active text-sm font-semibold hover:text-[#C68B77] transition">الرئيسية</a>
+        <a href="products.html" class="nav-link text-sm font-semibold hover:text-[#C68B77] transition">جميع المنتجات</a>
+        <a href="product-detail.html" class="nav-link text-sm font-semibold hover:text-[#C68B77] transition">المنتج الأكثر طلباً</a>
+        <a href="#about" class="nav-link text-sm font-semibold hover:text-[#C68B77] transition">عالم لوميير</a>
+      </nav>
+
+      <!-- Action Icons (Wishlist, Cart) -->
+      <div class="flex items-center gap-2">
+        <!-- Search Quick Link -->
+        <a href="products.html" class="p-2.5 rounded-full hover:bg-[#F7EFE9] text-[#2C1B18] transition" title="بحث">
+          <span class="material-symbols-outlined text-[22px]">search</span>
+        </a>
+
+        <!-- Wishlist -->
+        <a href="products.html" class="relative p-2.5 rounded-full hover:bg-[#F7EFE9] text-[#2C1B18] transition" title="المفضلة">
+          <span class="material-symbols-outlined text-[22px]">favorite_border</span>
+          <span class="wishlist-count hidden absolute top-1.5 right-1.5 w-4 h-4 bg-[#C68B77] text-white text-[10px] font-bold rounded-full items-center justify-center">0</span>
+        </a>
+
+        <!-- Cart Button -->
+        <a href="cart.html" class="relative flex items-center gap-2 py-2 px-3.5 rounded-full bg-[#2C1B18] text-white hover:bg-black transition shadow-sm" title="حقيبة التسوق">
+          <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+          <span class="text-xs font-bold hidden sm:inline">الحقيبة</span>
+          <span class="cart-count hidden absolute -top-1.5 -right-1.5 w-5 h-5 bg-[#C68B77] text-white text-[11px] font-bold rounded-full items-center justify-center border-2 border-white">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex-col justify-end lg:hidden">
+    <div class="bg-[#FCF8F5] rounded-t-3xl p-6 shadow-2xl space-y-6 max-h-[80vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-4 border-b border-[#F7EFE9]">
+        <div>
+          <span class="brand-title text-xl font-bold text-[#2C1B18]">LUMIÈRE PARIS</span>
+          <p class="text-xs text-gray-500">القائمة الرئيسية</p>
+        </div>
+        <button id="mobile-menu-close" class="w-9 h-9 rounded-full bg-[#F7EFE9] flex items-center justify-center text-[#2C1B18]">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-3 font-semibold text-base text-[#2C1B18]">
+        <a href="index.html" class="flex items-center justify-between p-3 rounded-xl bg-[#F7EFE9] text-[#C68B77]">
+          <span>الرئيسية</span>
+          <span class="material-symbols-outlined">chevron_left</span>
+        </a>
+        <a href="products.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-[#F7EFE9] transition">
+          <span>تسوق كل المنتجات</span>
+          <span class="material-symbols-outlined">chevron_left</span>
+        </a>
+        <a href="product-detail.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-[#F7EFE9] transition">
+          <span>أحمر شفاه ساتان (المنتج البطل)</span>
+          <span class="material-symbols-outlined">chevron_left</span>
+        </a>
+        <a href="cart.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-[#F7EFE9] transition">
+          <span>حقيبة المشتريات</span>
+          <span class="cart-count px-2 py-0.5 rounded-full bg-[#C68B77] text-white text-xs">0</span>
+        </a>
+        <a href="checkout.html" class="flex items-center justify-between p-3 rounded-xl hover:bg-[#F7EFE9] transition">
+          <span>إتمام الطلب والدفع</span>
+          <span class="material-symbols-outlined">chevron_left</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="flex-grow space-y-16">
+
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-[#F7EFE9] to-[#FCF8F5] pt-12 pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- Text Content -->
+          <div class="space-y-6 text-center lg:text-right">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 border border-[#C68B77]/30 text-[#C68B77] text-xs font-bold tracking-wide shadow-sm">
+              <span class="material-symbols-outlined text-[16px]">verified</span>
+              مجموعة خريف وشتاء 2026 الحصرية
+            </div>
+
+            <h1 class="brand-title text-4xl sm:text-5xl lg:text-6xl font-bold text-[#2C1B18] leading-[1.2]">
+              فخامة الجمال الفرنسي بلمسة عصرية مبتكرة
+            </h1>
+
+            <p class="text-sm sm:text-base text-[#231B19]/75 max-w-xl leading-relaxed">
+              تألقي مع تركيبات استثنائية غنية بالمكونات الطبيعية والمغذية، ومصممة لتمنحك إشراقة مخملية تدوم طوال اليوم. تجربة تسوق تفاعلية مع ميزة التجربة الافتراضية بالواقع المعزز (AR).
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+              <a href="products.html" class="py-3.5 px-8 rounded-full bg-[#2C1B18] text-white font-bold text-sm hover:bg-black transition shadow-lg hover:shadow-xl active:scale-95 flex items-center gap-2">
+                <span class="material-symbols-outlined text-[20px]">explore</span>
+                <span>استكشفي التشكيلة كاملة</span>
+              </a>
+              <a href="product-detail.html" class="py-3.5 px-6 rounded-full bg-white text-[#2C1B18] border border-[#C68B77]/40 font-bold text-sm hover:bg-[#F7EFE9] transition flex items-center gap-2 shadow-sm">
+                <span class="material-symbols-outlined text-[#C68B77] text-[20px]">view_in_ar</span>
+                <span>تجربة الروج الأكثر مبيعاً</span>
+              </a>
+            </div>
+
+            <!-- Trust Micro-Badges -->
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-[#F7EFE9]">
+              <div class="text-center lg:text-right">
+                <span class="block text-xl font-bold text-[#2C1B18]">100%</span>
+                <span class="text-xs text-[#231B19]/60">نباتي ونظيف</span>
+              </div>
+              <div class="text-center lg:text-right">
+                <span class="block text-xl font-bold text-[#2C1B18]">12 ساعة</span>
+                <span class="text-xs text-[#231B19]/60">ثبات وترطيب فائق</span>
+              </div>
+              <div class="text-center lg:text-right">
+                <span class="block text-xl font-bold text-[#2C1B18]">+50,000</span>
+                <span class="text-xs text-[#231B19]/60">عميلة واثقة</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Image & Showcase Card -->
+          <div class="relative flex justify-center">
+            <div class="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrD54FzMwu6pHGFpFtMYD3lrsrMkJQb-IjqqilgX5z_5xRIk8M2WxynxBywkeYfmQFLiTwOBoPatSvQLOyalHbH9RP3cmq5ze2C6y2bUG9O9mY-GAPChZAJC_WvUJNwSDj65gBT3OpWFl8TL_naEPLb4LiyZjHNUVPPMiYoQJVTzI1HPvkKkUWnjZ9jOaWU4VsG-ljS-Go1ULqbIxb3ab5os9i60ZSj3LY3z-x2JOOmvwcG4T4aVA43oXQ8LZRzx9jk" alt="Lumiere Satin Lipstick" class="w-full h-full object-cover">
+              
+              <!-- Floating Highlight Badge -->
+              <div class="absolute bottom-6 inset-x-6 glass-card p-4 rounded-2xl shadow-lg flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] text-[#C68B77] font-bold uppercase tracking-wider block">الأكثر طلباً هذا الأسبوع</span>
+                  <h3 class="text-sm font-bold text-[#2C1B18]">Rouge Lumière Satin</h3>
+                  <div class="flex items-center gap-2 mt-0.5">
+                    <span class="text-sm font-bold text-[#2C1B18]">165 ر.س</span>
+                    <span class="text-xs line-through text-gray-400">195 ر.س</span>
+                  </div>
+                </div>
+                <a href="product-detail.html" class="p-2.5 rounded-full bg-[#2C1B18] text-white hover:bg-[#C68B77] transition shadow-md">
+                  <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOPPING CATEGORIES -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <span class="text-xs font-bold text-[#C68B77] tracking-wider uppercase block">تصنيفات متجر لوميير</span>
+          <h2 class="brand-title text-2xl sm:text-3xl font-bold text-[#2C1B18]">اختاري الفئة المناسبة لجمالك</h2>
+        </div>
+        <a href="products.html" class="text-xs sm:text-sm font-bold text-[#C68B77] hover:underline flex items-center gap-1">
+          <span>عرض الكل</span>
+          <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        <!-- Category 1 -->
+        <a href="products.html" class="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-md transition">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrBrB_MC4VjDB6x-GEx7HdlyWCEcAY1KIwu4cuGpCas8dC_nMt0DafK4KhLkKrbDePLrmEHEBmvHd9x9wksOr9iWd0QeJUN67kTHMj8qBJime9J6THSiusyiFU1VjJV_uEI08MK_vqW-sbE_cOlw9QRFFH3A_EJpJRfy0YMINluT9sQLe0NDN6loXTCRkxDXEpxK1W0qifTW3r2moxsyofLp6pt-MDaYR1Hn7GDU00ap5W9O5-r5kDuNo8k5LzwJCMc" alt="أحمر الشفاه" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4 text-white">
+            <h3 class="text-sm sm:text-base font-bold">أحمر الشفاه والمحددات</h3>
+            <p class="text-[11px] text-white/80">لمسات ساتانية ومات حريري</p>
+          </div>
+        </a>
+
+        <!-- Category 2 -->
+        <a href="products.html" class="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="مكياج الوجه" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4 text-white">
+            <h3 class="text-sm sm:text-base font-bold">مكياج الوجه والأساس</h3>
+            <p class="text-[11px] text-white/80">تغطية مثالية وطبيعية</p>
+          </div>
+        </a>
+
+        <!-- Category 3 -->
+        <a href="products.html" class="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80" alt="العناية بالبشرة" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4 text-white">
+            <h3 class="text-sm sm:text-base font-bold">العناية بالبشرة والسيروم</h3>
+            <p class="text-[11px] text-white/80">ترطيب فائق ونضارة فورية</p>
+          </div>
+        </a>
+
+        <!-- Category 4 -->
+        <a href="products.html" class="group relative rounded-2xl overflow-hidden aspect-[3/4] shadow-sm hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" alt="العطور الفاخرة" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4 text-white">
+            <h3 class="text-sm sm:text-base font-bold">العطور الحصرية</h3>
+            <p class="text-[11px] text-white/80">نفحات باريسية ساحرة</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FEATURED / BESTSELLERS PRODUCTS -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <span class="text-xs font-bold text-[#C68B77] tracking-wider uppercase block">المختارات الملكية</span>
+          <h2 class="brand-title text-2xl sm:text-3xl font-bold text-[#2C1B18]">المنتجات الأكثر مبيعاً وتقييماً</h2>
+        </div>
+        <a href="products.html" class="py-2 px-4 rounded-full border border-[#2C1B18] text-[#2C1B18] hover:bg-[#2C1B18] hover:text-white transition text-xs font-bold">
+          عرض المتجر بالكامل
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Product Card 1 (Main Hero Product!) -->
+        <div class="luxury-card-hover bg-white rounded-2xl border border-[#F7EFE9] overflow-hidden flex flex-col shadow-sm">
+          <div class="relative aspect-square bg-[#F7EFE9] overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrD54FzMwu6pHGFpFtMYD3lrsrMkJQb-IjqqilgX5z_5xRIk8M2WxynxBywkeYfmQFLiTwOBoPatSvQLOyalHbH9RP3cmq5ze2C6y2bUG9O9mY-GAPChZAJC_WvUJNwSDj65gBT3OpWFl8TL_naEPLb4LiyZjHNUVPPMiYoQJVTzI1HPvkKkUWnjZ9jOaWU4VsG-ljS-Go1ULqbIxb3ab5os9i60ZSj3LY3z-x2JOOmvwcG4T4aVA43oXQ8LZRzx9jk" alt="Rouge Lumiere" class="w-full h-full object-cover">
+            
+            <span class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-[#2C1B18] text-white text-[10px] font-bold">
+              الأكثر مبيعاً ★
+            </span>
+
+            <button type="button" data-wishlist-toggle="1" class="absolute top-3 left-3 w-9 h-9 rounded-full bg-white/90 text-[#2C1B18] hover:text-[#C68B77] flex items-center justify-center shadow-md transition">
+              <span class="material-symbols-outlined text-[18px]">favorite_border</span>
+            </button>
+          </div>
+
+          <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between text-xs text-gray-500 mb-1">
+                <span>أحمر شفاه ساتان</span>
+                <div class="flex items-center gap-1 text-[#D4AF37]">
+                  <span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="font-bold text-[#231B19]">4.9</span>
+                  <span class="text-[10px] text-gray-400">(328)</span>
+                </div>
+              </div>
+              <h3 class="font-bold text-sm text-[#2C1B18]">Rouge Lumière Satin Hydrating</h3>
+              <p class="text-xs text-gray-500 line-clamp-2 mt-1">
+                تركيبة مرطبة تدوم 12 ساعة بخلاصة زيت بذور الورد وحمض الهيالورونيك.
+              </p>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 border-t border-[#F7EFE9]">
+              <div>
+                <span class="text-base font-bold text-[#2C1B18]">165 ر.س</span>
+                <span class="text-xs line-through text-gray-400 mr-1.5">195 ر.س</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <a href="product-detail.html" class="py-2 px-3.5 rounded-full border border-[#C68B77] text-[#C68B77] text-xs font-bold hover:bg-[#C68B77] hover:text-white transition">
+                  تفاصيل المنتج
+                </a>
+                <button type="button" data-quick-add="1" class="p-2 rounded-full bg-[#2C1B18] text-white hover:bg-black transition" title="إضافة سريعة للحقيبة">
+                  <span class="material-symbols-outlined text-[18px]">add_shopping_bag</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="luxury-card-hover bg-white rounded-2xl border border-[#F7EFE9] overflow-hidden flex flex-col shadow-sm">
+          <div class="relative aspect-square bg-[#F7EFE9] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80" alt="سيروم النضارة" class="w-full h-full object-cover">
+            
+            <span class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-[#C68B77] text-white text-[10px] font-bold">
+              جديد فاخر
+            </span>
+
+            <button type="button" data-wishlist-toggle="3" class="absolute top-3 left-3 w-9 h-9 rounded-full bg-white/90 text-[#2C1B18] hover:text-[#C68B77] flex items-center justify-center shadow-md transition">
+              <span class="material-symbols-outlined text-[18px]">favorite_border</span>
+            </button>
+          </div>
+
+          <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between text-xs text-gray-500 mb-1">
+                <span>عناية بالبشرة</span>
+                <div class="flex items-center gap-1 text-[#D4AF37]">
+                  <span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="font-bold text-[#231B19]">5.0</span>
+                  <span class="text-[10px] text-gray-400">(215)</span>
+                </div>
+              </div>
+              <h3 class="font-bold text-sm text-[#2C1B18]">سيروم النضارة والإشراق (Hydra-Glow)</h3>
+              <p class="text-xs text-gray-500 line-clamp-2 mt-1">
+                جرعة مركزة من فيتامين C النقي والنياسيناميد لإشراقة طبيعية وملمس حريري.
+              </p>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 border-t border-[#F7EFE9]">
+              <div>
+                <span class="text-base font-bold text-[#2C1B18]">190 ر.س</span>
+                <span class="text-xs line-through text-gray-400 mr-1.5">220 ر.س</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <a href="products.html" class="py-2 px-3.5 rounded-full border border-[#C68B77] text-[#C68B77] text-xs font-bold hover:bg-[#C68B77] hover:text-white transition">
+                  تفاصيل المنتج
+                </a>
+                <button type="button" data-quick-add="3" class="p-2 rounded-full bg-[#2C1B18] text-white hover:bg-black transition" title="إضافة سريعة للحقيبة">
+                  <span class="material-symbols-outlined text-[18px]">add_shopping_bag</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="luxury-card-hover bg-white rounded-2xl border border-[#F7EFE9] overflow-hidden flex flex-col shadow-sm">
+          <div class="relative aspect-square bg-[#F7EFE9] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80" alt="عطر الوردة المخملية" class="w-full h-full object-cover">
+            
+            <span class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-[#2C1B18] text-white text-[10px] font-bold">
+              عطر أيقوني
+            </span>
+
+            <button type="button" data-wishlist-toggle="6" class="absolute top-3 left-3 w-9 h-9 rounded-full bg-white/90 text-[#2C1B18] hover:text-[#C68B77] flex items-center justify-center shadow-md transition">
+              <span class="material-symbols-outlined text-[18px]">favorite_border</span>
+            </button>
+          </div>
+
+          <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between text-xs text-gray-500 mb-1">
+                <span>عطور فاخرة</span>
+                <div class="flex items-center gap-1 text-[#D4AF37]">
+                  <span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                  <span class="font-bold text-[#231B19]">5.0</span>
+                  <span class="text-[10px] text-gray-400">(97)</span>
+                </div>
+              </div>
+              <h3 class="font-bold text-sm text-[#2C1B18]">عطر الوردة المخملية (Velvet Rose Extrait)</h3>
+              <p class="text-xs text-gray-500 line-clamp-2 mt-1">
+                عبير آسر من ورود غراس الفرنسية مع نفحات خشب الصندل والعنبر الدافئ.
+              </p>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 border-t border-[#F7EFE9]">
+              <div>
+                <span class="text-base font-bold text-[#2C1B18]">340 ر.س</span>
+                <span class="text-xs line-through text-gray-400 mr-1.5">390 ر.س</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <a href="products.html" class="py-2 px-3.5 rounded-full border border-[#C68B77] text-[#C68B77] text-xs font-bold hover:bg-[#C68B77] hover:text-white transition">
+                  تفاصيل المنتج
+                </a>
+                <button type="button" data-quick-add="6" class="p-2 rounded-full bg-[#2C1B18] text-white hover:bg-black transition" title="إضافة سريعة للحقيبة">
+                  <span class="material-symbols-outlined text-[18px]">add_shopping_bag</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- AR TRY-ON TEASER BANNER -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#2C1B18] to-[#452722] text-white p-8 sm:p-12 shadow-xl">
+        <div class="relative z-10 max-w-xl space-y-4">
+          <span class="px-3 py-1 rounded-full bg-[#C68B77]/30 text-[#F2D5CB] text-xs font-bold border border-[#C68B77]/40">
+            تقنية الواقع المعزز AR
+          </span>
+          <h2 class="brand-title text-3xl sm:text-4xl font-bold leading-tight">
+            جربي درجات الروج على شفتيكِ مباشرة قبل الشراء!
+          </h2>
+          <p class="text-sm text-[#F5EFEB]/80 leading-relaxed">
+            استخدمي كاميرا جوالك مع نظام المحاكاة الذكي لتجربة كل درجة واكتشاف اللون المطابق لبشرتك بدقة متناهية.
+          </p>
+          <div class="pt-2">
+            <a href="product-detail.html" class="inline-flex items-center gap-2 py-3 px-6 rounded-full bg-[#C68B77] text-white font-bold text-xs hover:bg-white hover:text-[#2C1B18] transition shadow-md">
+              <span class="material-symbols-outlined text-[18px]">view_in_ar</span>
+              <span>افتحي المجرب الافتراضي الآن</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY LUMIÈRE / BRAND VALUES -->
+    <section id="about" class="bg-[#F7EFE9]/60 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <span class="text-xs font-bold text-[#C68B77] uppercase tracking-wider block">معايير الفخامة</span>
+          <h2 class="brand-title text-3xl font-bold text-[#2C1B18]">لماذا تختار عاشقات الجمال لوميير؟</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="bg-white p-6 rounded-2xl border border-[#F7EFE9] text-center space-y-3">
+            <div class="w-12 h-12 mx-auto rounded-full bg-[#F7EFE9] flex items-center justify-center text-[#C68B77]">
+              <span class="material-symbols-outlined text-[26px]">eco</span>
+            </div>
+            <h3 class="font-bold text-sm text-[#2C1B18]">مكونات نباتية 100%</h3>
+            <p class="text-xs text-gray-500">خالية تماماً من البارابين، الرصاص، والمواد الكيميائية الضارة.</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-[#F7EFE9] text-center space-y-3">
+            <div class="w-12 h-12 mx-auto rounded-full bg-[#F7EFE9] flex items-center justify-center text-[#C68B77]">
+              <span class="material-symbols-outlined text-[26px]">local_shipping</span>
+            </div>
+            <h3 class="font-bold text-sm text-[#2C1B18]">توصيل سريع ومجاني</h3>
+            <p class="text-xs text-gray-500">شحن مجاني لكافة مدن المملكة للطلبات الأكثر من 200 ريال.</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-[#F7EFE9] text-center space-y-3">
+            <div class="w-12 h-12 mx-auto rounded-full bg-[#F7EFE9] flex items-center justify-center text-[#C68B77]">
+              <span class="material-symbols-outlined text-[26px]">credit_card</span>
+            </div>
+            <h3 class="font-bold text-sm text-[#2C1B18]">طرق دفع آمنة</h3>
+            <p class="text-xs text-gray-500">مدى، Apple Pay، تابي وتمارا، وخيار الدفع عند الاستلام.</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-[#F7EFE9] text-center space-y-3">
+            <div class="w-12 h-12 mx-auto rounded-full bg-[#F7EFE9] flex items-center justify-center text-[#C68B77]">
+              <span class="material-symbols-outlined text-[26px]">replay</span>
+            </div>
+            <h3 class="font-bold text-sm text-[#2C1B18]">استبدال واسترجاع مرن</h3>
+            <p class="text-xs text-gray-500">ضمان ذهبي لاسترجاع المنتج خلال 14 يوماً بكل سهولة.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LUXURY FOOTER -->
+  <footer class="bg-[#2C1B18] text-[#F5EFEB] pt-14 pb-8 border-t border-[#3A2420]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-white/10">
+        
+        <!-- Brand Info -->
+        <div class="space-y-4">
+          <span class="brand-title text-2xl font-bold text-white tracking-widest block">LUMIÈRE PARIS</span>
+          <p class="text-xs text-[#F5EFEB]/70 leading-relaxed">
+            العلامة الرائدة في صياغة مستحضرات التجميل الراقية بمزيج من التراث الباريسي وأحدث تقنيات الجمال العصرية.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-xs font-bold text-[#C68B77] uppercase tracking-wider mb-4">روابط سريعة</h4>
+          <ul class="space-y-2.5 text-xs text-[#F5EFEB]/80">
+            <li><a href="index.html" class="hover:text-[#C68B77] transition">الصفحة الرئيسية</a></li>
+            <li><a href="products.html" class="hover:text-[#C68B77] transition">متجر المنتجات</a></li>
+            <li><a href="product-detail.html" class="hover:text-[#C68B77] transition">أحمر شفاه ساتان هيدراتينج</a></li>
+            <li><a href="cart.html" class="hover:text-[#C68B77] transition">حقيبة التسوق</a></li>
+            <li><a href="checkout.html" class="hover:text-[#C68B77] transition">إتمام الطلب والدفع</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Care -->
+        <div>
+          <h4 class="text-xs font-bold text-[#C68B77] uppercase tracking-wider mb-4">خدمة العملاء</h4>
+          <ul class="space-y-2.5 text-xs text-[#F5EFEB]/80">
+            <li><a href="#" class="hover:text-[#C68B77] transition">تتبع الطلبات</a></li>
+            <li><a href="#" class="hover:text-[#C68B77] transition">سياسة الاستبدال والاسترجاع</a></li>
+            <li><a href="#" class="hover:text-[#C68B77] transition">الأسئلة الشائعة</a></li>
+            <li><a href="#" class="hover:text-[#C68B77] transition">تواصل معنا عبر واتساب</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold text-[#C68B77] uppercase tracking-wider mb-2">النشرة البريدية الحصرية</h4>
+          <p class="text-xs text-[#F5EFEB]/70">اشتركي ليصلك جديد التشكيلات وعروض الخصم الخاصة قبل الجميع.</p>
+          <form onsubmit="event.preventDefault(); showToast('شكراً لاشتراككِ في نشرة لوميير الحصرية!', 'mark_email_read');" class="flex items-center gap-2">
+            <input type="email" required placeholder="بريدك الإلكتروني" class="w-full text-xs px-3.5 py-2.5 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none focus:border-[#C68B77]">
+            <button type="submit" class="py-2.5 px-4 rounded-full bg-[#C68B77] text-white text-xs font-bold hover:bg-white hover:text-[#2C1B18] transition shrink-0">
+              انضمام
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Bottom copyright & payments -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#F5EFEB]/50 gap-4">
+        <p>© 2026 Lumière Paris. جميع الحقوق محفوظة.</p>
+        <div class="flex items-center gap-4 text-sm">
+          <span>مدى</span>
+          <span>Apple Pay</span>
+          <span>Visa / Mastercard</span>
+          <span>تابي وتمارا</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Central JS File -->
+  <script src="js/main.js"></script>
+</body>
+</html>

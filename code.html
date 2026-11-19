@@ -1,0 +1,611 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumière Beauty — تفاصيل المنتج</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'accent': '#C68B77',
+        'gold': '#D4AF37',
+        'nude-light': '#FDF9F6',
+        'nude-surface': '#F7EFE9',
+        'light-primary': '#2C1B18',
+        'light-on-primary': '#FFFFFF',
+        'light-surface': '#FCF8F5',
+        'light-on-surface': '#231B19',
+        'dark-primary': '#F2D5CB',
+        'dark-on-primary': '#2C1B18',
+        'dark-surface': '#1A1514',
+        'dark-on-surface': '#F5EFEB',
+      },
+      borderRadius: {
+        'sm': '6px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '20px',
+        'xl': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '20px',
+      },
+      fontFamily: {
+        'display': ['"Cormorant Garamond"', 'sans-serif'],
+        'headline': ['"Cormorant Garamond"', 'sans-serif'],
+        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '48px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'display-lg-mobile': ['30px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-lg': ['32px', { lineHeight: '38px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-lg-mobile': ['26px', { lineHeight: '32px', letterSpacing: '-0.2px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '30px', fontWeight: '600' }],
+        'headline-sm': ['20px', { lineHeight: '26px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '18px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.25px', fontWeight: '600' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.5px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.5px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '280ms',
+        'surface-exit': '180ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Tajawal:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: 'Tajawal', 'Plus Jakarta Sans', sans-serif;
+    }
+    .brand-title {
+      font-family: 'Cormorant Garamond', 'Tajawal', serif;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-light-surface text-light-on-surface min-h-[884px] pb-28 antialiased selection:bg-accent/20" data-stitch-vh="min-h-[884px]===min-h-screen">
+
+  <!-- TOP APP BAR / CONTEXTUAL HEADER -->
+  <header class="sticky top-0 z-30 bg-light-surface/90 backdrop-blur-md border-b border-nude-surface/80 px-4 py-3 flex items-center justify-between">
+    <a href="products.html" aria-label="الرجوع إلى المتجر" class="w-10 h-10 rounded-full flex items-center justify-center text-light-primary hover:bg-nude-surface/60 transition duration-state-change" title="الرجوع إلى المنتجات">
+      <span class="material-symbols-outlined text-[22px]">arrow_forward</span>
+    </a>
+
+    <a href="index.html" class="text-center group" title="الصفحة الرئيسية">
+      <span class="brand-title text-sm tracking-widest uppercase font-semibold text-accent block group-hover:text-light-primary transition">LUMIÈRE PARIS</span>
+      <h1 data-design-text-token="label-sm" class="text-label-sm font-label text-light-on-surface/70">أحمر شفاه ساتان حريري</h1>
+    </a>
+
+    <div class="flex items-center gap-1">
+      <button type="button" id="wishlist-btn" aria-label="إضافة للمفضلة" class="w-10 h-10 rounded-full flex items-center justify-center text-light-primary hover:text-accent transition duration-state-change">
+        <span class="material-symbols-outlined text-[22px]" id="wishlist-icon">favorite_border</span>
+      </button>
+      <a href="cart.html" aria-label="حقيبة التسوق" class="relative w-10 h-10 rounded-full flex items-center justify-center text-light-primary hover:text-accent transition duration-state-change" title="حقيبة التسوق">
+        <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+        <span class="cart-count hidden absolute top-1 right-1 w-4 h-4 bg-accent text-white text-[10px] font-bold rounded-full items-center justify-center">0</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="space-y-6">
+
+    <!-- MEDIA SHOWCASE GALLERY -->
+    <section class="relative bg-nude-light border-b border-nude-surface/80 overflow-hidden">
+      <!-- Main Featured Image -->
+      <div class="relative w-full aspect-[4/4] overflow-hidden bg-nude-surface flex items-center justify-center">
+        <img id="main-product-img" src="https://lh3.googleusercontent.com/aida/ALJJyrD54FzMwu6pHGFpFtMYD3lrsrMkJQb-IjqqilgX5z_5xRIk8M2WxynxBywkeYfmQFLiTwOBoPatSvQLOyalHbH9RP3cmq5ze2C6y2bUG9O9mY-GAPChZAJC_WvUJNwSDj65gBT3OpWFl8TL_naEPLb4LiyZjHNUVPPMiYoQJVTzI1HPvkKkUWnjZ9jOaWU4VsG-ljS-Go1ULqbIxb3ab5os9i60ZSj3LY3z-x2JOOmvwcG4T4aVA43oXQ8LZRzx9jk" alt="Lumière Satin Lipstick" class="w-full h-full object-cover transition-all duration-300">
+        
+        <!-- Luxury Badge Overlay -->
+        <div class="absolute top-4 right-4 flex flex-col gap-1.5 items-end">
+          <span class="px-3 py-1 rounded-full bg-light-primary/85 text-light-on-primary text-[11px] font-medium tracking-wide shadow-sm backdrop-blur-sm">
+            الأكثر مبيعاً ★
+          </span>
+          <span class="px-2.5 py-0.5 rounded-full bg-accent/20 text-light-primary text-[10px] font-semibold border border-accent/40 backdrop-blur-sm">
+            تركيبة نباتية 100%
+          </span>
+        </div>
+
+        <!-- AR Live Camera floating action trigger -->
+        <button type="button" id="open-ar-btn" class="absolute bottom-4 left-4 inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/95 text-light-primary shadow-lg border border-accent/30 hover:bg-white hover:scale-105 active:scale-95 transition duration-state-change backdrop-blur-md">
+          <span class="material-symbols-outlined text-accent text-[20px] animate-pulse">view_in_ar</span>
+          <span class="text-xs font-bold font-label">تجربة افتراضية بالكاميرا (AR)</span>
+        </button>
+      </div>
+
+      <!-- Thumbnail switcher strip -->
+      <div class="flex items-center gap-2.5 px-4 py-3 overflow-x-auto no-scrollbar justify-center">
+        <button type="button" onclick="switchMedia('https://lh3.googleusercontent.com/aida/ALJJyrD54FzMwu6pHGFpFtMYD3lrsrMkJQb-IjqqilgX5z_5xRIk8M2WxynxBywkeYfmQFLiTwOBoPatSvQLOyalHbH9RP3cmq5ze2C6y2bUG9O9mY-GAPChZAJC_WvUJNwSDj65gBT3OpWFl8TL_naEPLb4LiyZjHNUVPPMiYoQJVTzI1HPvkKkUWnjZ9jOaWU4VsG-ljS-Go1ULqbIxb3ab5os9i60ZSj3LY3z-x2JOOmvwcG4T4aVA43oXQ8LZRzx9jk', 0)" class="thumb-btn ring-2 ring-accent ring-offset-2 w-14 h-14 rounded-lg overflow-hidden bg-white shrink-0 border border-nude-surface transition">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrD54FzMwu6pHGFpFtMYD3lrsrMkJQb-IjqqilgX5z_5xRIk8M2WxynxBywkeYfmQFLiTwOBoPatSvQLOyalHbH9RP3cmq5ze2C6y2bUG9O9mY-GAPChZAJC_WvUJNwSDj65gBT3OpWFl8TL_naEPLb4LiyZjHNUVPPMiYoQJVTzI1HPvkKkUWnjZ9jOaWU4VsG-ljS-Go1ULqbIxb3ab5os9i60ZSj3LY3z-x2JOOmvwcG4T4aVA43oXQ8LZRzx9jk" alt="المنتج" class="w-full h-full object-cover">
+        </button>
+        <button type="button" onclick="switchMedia('https://lh3.googleusercontent.com/aida/ALJJyrDZf8B0fWFptY9TTpYxYQ7R1HNTzMpUyNq3ca1unYHz-CuVJbj0c-dzPvEf5cAOi2saexU2MUCdoP0szkReA-7s8OFenc5Ok4YD8fmp-uplH2Qid4gFrxnpCkmfLOWDLuL9HjSvIcsx0TazoT0JACUSFtKZ2h9U0N2nfxpoTljdNikwt7ys5R3CEF3EpPGGhe3UCk8JGdtl8pvfC6qyGhUGEY4mAv0tBRefqL_1QsSBBCzbbx8fHZlKQpEJDpzYRU4', 1)" class="thumb-btn ring-0 w-14 h-14 rounded-lg overflow-hidden bg-white shrink-0 border border-nude-surface transition opacity-70 hover:opacity-100">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrDZf8B0fWFptY9TTpYxYQ7R1HNTzMpUyNq3ca1unYHz-CuVJbj0c-dzPvEf5cAOi2saexU2MUCdoP0szkReA-7s8OFenc5Ok4YD8fmp-uplH2Qid4gFrxnpCkmfLOWDLuL9HjSvIcsx0TazoT0JACUSFtKZ2h9U0N2nfxpoTljdNikwt7ys5R3CEF3EpPGGhe3UCk8JGdtl8pvfC6qyGhUGEY4mAv0tBRefqL_1QsSBBCzbbx8fHZlKQpEJDpzYRU4" alt="على العارضة" class="w-full h-full object-cover">
+        </button>
+        <button type="button" onclick="switchMedia('https://lh3.googleusercontent.com/aida/ALJJyrBrB_MC4VjDB6x-GEx7HdlyWCEcAY1KIwu4cuGpCas8dC_nMt0DafK4KhLkKrbDePLrmEHEBmvHd9x9wksOr9iWd0QeJUN67kTHMj8qBJime9J6THSiusyiFU1VjJV_uEI08MK_vqW-sbE_cOlw9QRFFH3A_EJpJRfy0YMINluT9sQLe0NDN6loXTCRkxDXEpxK1W0qifTW3r2moxsyofLp6pt-MDaYR1Hn7GDU00ap5W9O5-r5kDuNo8k5LzwJCMc', 2)" class="thumb-btn ring-0 w-14 h-14 rounded-lg overflow-hidden bg-white shrink-0 border border-nude-surface transition opacity-70 hover:opacity-100">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrBrB_MC4VjDB6x-GEx7HdlyWCEcAY1KIwu4cuGpCas8dC_nMt0DafK4KhLkKrbDePLrmEHEBmvHd9x9wksOr9iWd0QeJUN67kTHMj8qBJime9J6THSiusyiFU1VjJV_uEI08MK_vqW-sbE_cOlw9QRFFH3A_EJpJRfy0YMINluT9sQLe0NDN6loXTCRkxDXEpxK1W0qifTW3r2moxsyofLp6pt-MDaYR1Hn7GDU00ap5W9O5-r5kDuNo8k5LzwJCMc" alt="قوام السواتش" class="w-full h-full object-cover">
+        </button>
+      </div>
+    </section>
+
+    <!-- PRODUCT TITLE, RATING & PRICE -->
+    <section class="px-5">
+      <div class="flex items-center justify-between mb-1">
+        <span class="text-xs font-semibold text-accent tracking-widest uppercase">مجموعة فيلفيت روز • إصدار خاص</span>
+        <div class="flex items-center gap-1 text-gold text-xs">
+          <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+          <span class="font-bold text-light-on-surface">4.9</span>
+          <span class="text-light-on-surface/50 text-[11px]">(328 تقييم)</span>
+        </div>
+      </div>
+
+      <h2 data-design-text-token="headline-lg-mobile" class="brand-title text-headline-lg-mobile font-semibold text-light-primary leading-tight mb-2">
+        Rouge Lumière Satin Hydrating
+      </h2>
+
+      <p class="text-body-sm text-light-on-surface/75 leading-relaxed mb-3">
+        أحمر شفاه بلمسة ساتانية تدوم حتى 12 ساعة، غني بزيت بذور الورد وحمض الهيالورونيك لتغذية الشفاه ومنحها امتلاءً فورياً بدون جفاف.
+      </p>
+
+      <div class="flex items-baseline gap-3">
+        <span class="text-2xl font-bold text-light-primary tracking-tight">165 ر.س</span>
+        <span class="text-sm line-through text-light-on-surface/40">195 ر.س</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-accent/15 text-accent font-bold">خصم 15%</span>
+      </div>
+    </section>
+
+    <div class="h-px bg-nude-surface mx-5"></div>
+
+    <!-- SHADE SELECTOR SECTION -->
+    <section class="px-5">
+      <div class="flex items-center justify-between mb-3">
+        <div>
+          <span class="text-xs text-light-on-surface/60 font-medium">الدرجة المختارة:</span>
+          <span id="selected-shade-name" class="font-bold text-sm text-light-primary mr-1">04 - روز فيلفيت (Rose Velours)</span>
+        </div>
+        <span id="selected-shade-tone" class="text-[11px] px-2.5 py-0.5 rounded-full bg-nude-surface text-accent font-medium">
+          أندرتون دافئ ومحايد
+        </span>
+      </div>
+
+      <!-- Undertone Smart Filter chips -->
+      <div class="flex items-center gap-2 mb-4 overflow-x-auto no-scrollbar pb-1">
+        <span class="text-xs text-light-on-surface/60 shrink-0">تصفية:</span>
+        <button type="button" onclick="filterShades('all')" class="undertone-filter px-3 py-1 rounded-full text-xs font-medium bg-light-primary text-light-on-primary transition">
+          الكل (6)
+        </button>
+        <button type="button" onclick="filterShades('warm')" class="undertone-filter px-3 py-1 rounded-full text-xs font-medium bg-white border border-nude-surface text-light-on-surface/80 hover:border-accent transition">
+          دافئ (Warm)
+        </button>
+        <button type="button" onclick="filterShades('cool')" class="undertone-filter px-3 py-1 rounded-full text-xs font-medium bg-white border border-nude-surface text-light-on-surface/80 hover:border-accent transition">
+          بارد (Cool)
+        </button>
+        <button type="button" onclick="filterShades('nude')" class="undertone-filter px-3 py-1 rounded-full text-xs font-medium bg-white border border-nude-surface text-light-on-surface/80 hover:border-accent transition">
+          نيود طبيعي
+        </button>
+      </div>
+
+      <!-- Swatches Grid -->
+      <div class="grid grid-cols-6 gap-2.5" id="shades-container">
+        <!-- Shade 1 -->
+        <button type="button" data-shade="01 - Nude Pêche" data-tone="نيود محايد" data-category="nude" onclick="selectShade(this, '#D19A8B', '01 - نيود بيتش (Nude Pêche)', 'نيود محايد')" class="shade-pill group relative flex flex-col items-center gap-1.5 p-1 rounded-xl transition">
+          <div class="w-10 h-10 rounded-full border-2 border-white shadow-sm flex items-center justify-center ring-1 ring-black/10 transition group-hover:scale-105" style="background-color: #D19A8B;"></div>
+          <span class="text-[10px] font-medium text-light-on-surface/70">01</span>
+        </button>
+
+        <!-- Shade 2 -->
+        <button type="button" data-shade="02 - Spiced Chai" data-tone="أندرتون دافئ" data-category="warm" onclick="selectShade(this, '#B66A59', '02 - سبايسد شاي (Spiced Chai)', 'أندرتون دافئ')" class="shade-pill group relative flex flex-col items-center gap-1.5 p-1 rounded-xl transition">
+          <div class="w-10 h-10 rounded-full border-2 border-white shadow-sm flex items-center justify-center ring-1 ring-black/10 transition group-hover:scale-105" style="background-color: #B66A59;"></div>
+          <span class="text-[10px] font-medium text-light-on-surface/70">02</span>
+        </button>
+
+        <!-- Shade 3 -->
+        <button type="button" data-shade="03 - Dahlia Rose" data-tone="أندرتون بارد" data-category="cool" onclick="selectShade(this, '#B84D63', '03 - داليا روز (Dahlia Rose)', 'أندرتون بارد')" class="shade-pill group relative flex flex-col items-center gap-1.5 p-1 rounded-xl transition">
+          <div class="w-10 h-10 rounded-full border-2 border-white shadow-sm flex items-center justify-center ring-1 ring-black/10 transition group-hover:scale-105" style="background-color: #B84D63;"></div>
+          <span class="text-[10px] font-medium text-light-on-surface/70">03</span>
+        </button>
+
+        <!-- Shade 4 (Active Default) -->
+        <button type="button" data-shade="04 - Rose Velours" data-tone="أندرتون دافئ ومحايد" data-category="warm" onclick="selectShade(this, '#A63D40', '04 - روز فيلفيت (Rose Velours)', 'أندرتون دافئ ومحايد')" class="shade-pill active-shade group relative flex flex-col items-center gap-1.5 p-1 rounded-xl transition ring-2 ring-accent ring-offset-2">
+          <div class="w-10 h-10 rounded-full border-2 border-white shadow-md flex items-center justify-center ring-1 ring-black/10 transition group-hover:scale-105" style="background-color: #A63D40;">
+            <span class="material-symbols-outlined text-white text-[16px] font-bold">check</span>
+          </div>
+          <span class="text-[10px] font-bold text-accent">04</span>
+        </button>
+
+        <!-- Shade 5 -->
+        <button type="button" data-shade="05 - Berry Royal" data-tone="أندرتون بارد وغني" data-category="cool" onclick="selectShade(this, '#78263E', '05 - بيري رويال (Berry Royal)', 'أندرتون بارد وغني')" class="shade-pill group relative flex flex-col items-center gap-1.5 p-1 rounded-xl transition">
+          <div class="w-10 h-10 rounded-full border-2 border-white shadow-sm flex items-center justify-center ring-1 ring-black/10 transition group-hover:scale-105" style="background-color: #78263E;"></div>
+          <span class="text-[10px] font-medium text-light-on-surface/70">05</span>
+        </button>
+
+        <!-- Shade 6 -->
+        <button type="button" data-shade="06 - Terra Cotta" data-tone="أندرتون دافئ ترابي" data-category="warm" onclick="selectShade(this, '#9E4732', '06 - تيرا كوتا (Terra Cotta)', 'أندرتون دافئ ترابي')" class="shade-pill group relative flex flex-col items-center gap-1.5 p-1 rounded-xl transition">
+          <div class="w-10 h-10 rounded-full border-2 border-white shadow-sm flex items-center justify-center ring-1 ring-black/10 transition group-hover:scale-105" style="background-color: #9E4732;"></div>
+          <span class="text-[10px] font-medium text-light-on-surface/70">06</span>
+        </button>
+      </div>
+
+      <!-- AI Skin-Tone Match Reassurance Card -->
+      <div class="mt-4 p-3.5 rounded-xl bg-nude-surface/70 border border-accent/25 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent shrink-0">
+            <span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-light-primary">مساعد تحديد الدرجة بالذكاء الاصطناعي</h4>
+            <p class="text-[11px] text-light-on-surface/70">اكتشفي الدرجة الأنسب لدرجة بشرتك بدقة 98%</p>
+          </div>
+        </div>
+        <button type="button" onclick="triggerSmartQuiz()" class="px-3 py-1.5 rounded-full bg-light-primary text-light-on-primary text-xs font-semibold shrink-0 hover:opacity-90">
+          ابدئي الفحص
+        </button>
+      </div>
+    </section>
+
+    <div class="h-px bg-nude-surface mx-5"></div>
+
+    <!-- KEY HIGHLIGHTS & INGREDIENTS -->
+    <section class="px-5 space-y-3">
+      <h3 class="text-xs font-bold text-accent uppercase tracking-wider">مميزات التركيبة والمكونات</h3>
+      
+      <div class="grid grid-cols-3 gap-2">
+        <div class="p-3 rounded-xl bg-white border border-nude-surface text-center">
+          <span class="material-symbols-outlined text-accent text-[22px] mb-1">hourglass_top</span>
+          <span class="block text-xs font-bold text-light-primary">ثبات 12 ساعة</span>
+          <span class="text-[10px] text-light-on-surface/60">بدون تلطخ</span>
+        </div>
+        <div class="p-3 rounded-xl bg-white border border-nude-surface text-center">
+          <span class="material-symbols-outlined text-accent text-[22px] mb-1">water_drop</span>
+          <span class="block text-xs font-bold text-light-primary">هيالورونيك</span>
+          <span class="text-[10px] text-light-on-surface/60">ترطيب فائق</span>
+        </div>
+        <div class="p-3 rounded-xl bg-white border border-nude-surface text-center">
+          <span class="material-symbols-outlined text-accent text-[22px] mb-1">cruelty_free</span>
+          <span class="block text-xs font-bold text-light-primary">نباتي ونظيف</span>
+          <span class="text-[10px] text-light-on-surface/60">خالٍ من البارابين</span>
+        </div>
+      </div>
+
+      <details class="group bg-white rounded-xl border border-nude-surface p-3.5 transition [&_summary::-webkit-details-marker]:hidden" open>
+        <summary class="flex items-center justify-between cursor-pointer font-bold text-xs text-light-primary">
+          <span class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent text-[18px]">science</span>
+            المكونات الفعالة وطريقة الاستخدام
+          </span>
+          <span class="material-symbols-outlined text-light-on-surface/50 transition group-open:rotate-180 text-[18px]">expand_more</span>
+        </summary>
+        <p class="mt-2.5 text-xs text-light-on-surface/70 leading-relaxed border-t border-nude-surface pt-2">
+          يحتوي على شمع الكانديليلا الطبيعي وزبدة الشيا العضوية لمنح شفتيك نعومة كالحرير، مع تقنية الأصباغ الدقيقة Micro-Pigments لتغطية متساوية من أول لمسة.
+        </p>
+      </details>
+    </section>
+
+    <!-- FREQUENTLY PAIRED WITH (BUNDLE UPSELL) -->
+    <section class="px-5">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-xs font-bold text-light-primary">يكتمل مظهركِ مع هذه القطع</h3>
+        <span class="text-[11px] text-accent font-semibold">وفر 20% عند الشراء معاً</span>
+      </div>
+
+      <div class="flex items-center gap-3 p-3.5 rounded-xl bg-white border border-nude-surface shadow-sm">
+        <img src="https://lh3.googleusercontent.com/aida/ALJJyrBrB_MC4VjDB6x-GEx7HdlyWCEcAY1KIwu4cuGpCas8dC_nMt0DafK4KhLkKrbDePLrmEHEBmvHd9x9wksOr9iWd0QeJUN67kTHMj8qBJime9J6THSiusyiFU1VjJV_uEI08MK_vqW-sbE_cOlw9QRFFH3A_EJpJRfy0YMINluT9sQLe0NDN6loXTCRkxDXEpxK1W0qifTW3r2moxsyofLp6pt-MDaYR1Hn7GDU00ap5W9O5-r5kDuNo8k5LzwJCMc" alt="Lip Pencil" class="w-16 h-16 rounded-lg object-cover shrink-0">
+        <div class="grow min-w-0">
+          <h4 class="text-xs font-bold text-light-primary truncate">محدد الشفاه المخملي الدقيق</h4>
+          <p class="text-[11px] text-light-on-surface/60 mb-1">الدرجة المتوافقة: 04 روز</p>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-light-primary">68 ر.س</span>
+            <span class="text-[10px] line-through text-light-on-surface/40">85 ر.س</span>
+          </div>
+        </div>
+        <button type="button" onclick="toggleBundle(this)" class="px-3 py-1.5 rounded-full border border-light-primary text-light-primary hover:bg-light-primary hover:text-white transition text-xs font-semibold shrink-0">
+          + إضافة
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- STICKY BOTTOM ACTION BAR -->
+  <footer class="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-lg border-t border-nude-surface px-5 py-3.5 shadow-2xl flex items-center justify-between gap-4">
+    <div class="flex flex-col">
+      <span class="text-[10px] text-light-on-surface/60 font-medium">السعر الإجمالي</span>
+      <span id="bottom-total-price" class="text-lg font-bold text-light-primary leading-tight">165 ر.س</span>
+      <span class="text-[9px] text-emerald-700 font-semibold flex items-center gap-0.5">
+        <span class="material-symbols-outlined text-[11px]">local_shipping</span> شحن مجاني
+      </span>
+    </div>
+
+    <div class="flex items-center gap-2 grow max-w-xs">
+      <button type="button" id="buy-now-btn" class="grow py-3 px-5 rounded-full bg-light-primary text-light-on-primary font-bold text-xs tracking-wide shadow-md hover:bg-black active:scale-[0.98] transition flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+        <span>إضافة إلى الحقيبة</span>
+      </button>
+      <a href="cart.html" class="p-3 rounded-full border border-nude-surface bg-nude-surface/60 text-light-primary hover:bg-nude-surface transition flex items-center justify-center shrink-0" title="عرض السلة">
+        <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- AR VIRTUAL TRY-ON MODAL SIMULATION -->
+  <div id="ar-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex-col justify-end transition-opacity duration-300">
+    <div class="relative bg-light-surface w-full rounded-t-3xl overflow-hidden max-h-[777px] flex flex-col shadow-2xl border-t border-accent/40 animate-in slide-in-from-bottom" data-stitch-vh="max-h-[777px]===max-h-[88vh]">
+      
+      <!-- Modal Header -->
+      <div class="p-4 border-b border-nude-surface flex items-center justify-between bg-white">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-accent/15 flex items-center justify-center text-accent">
+            <span class="material-symbols-outlined text-[18px]">view_in_ar</span>
+          </div>
+          <div>
+            <h3 class="text-xs font-bold text-light-primary">المجرب الافتراضي المباشر (AR Live)</h3>
+            <p class="text-[10px] text-light-on-surface/60">محاكاة فورية للدرجة على الملامح الطبيعية</p>
+          </div>
+        </div>
+        <button type="button" id="close-ar-btn" class="w-8 h-8 rounded-full bg-nude-surface flex items-center justify-center text-light-primary hover:bg-nude-surface/80">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+
+      <!-- AR Simulated Camera Viewport -->
+      <div class="relative w-full aspect-[4/3] bg-black overflow-hidden flex items-center justify-center">
+        <img id="ar-preview-img" src="https://lh3.googleusercontent.com/aida/ALJJyrDZf8B0fWFptY9TTpYxYQ7R1HNTzMpUyNq3ca1unYHz-CuVJbj0c-dzPvEf5cAOi2saexU2MUCdoP0szkReA-7s8OFenc5Ok4YD8fmp-uplH2Qid4gFrxnpCkmfLOWDLuL9HjSvIcsx0TazoT0JACUSFtKZ2h9U0N2nfxpoTljdNikwt7ys5R3CEF3EpPGGhe3UCk8JGdtl8pvfC6qyGhUGEY4mAv0tBRefqL_1QsSBBCzbbx8fHZlKQpEJDpzYRU4" alt="AR Model View" class="w-full h-full object-cover">
+        
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+        
+        <div class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-emerald-600/90 text-white text-[10px] font-medium flex items-center gap-1 backdrop-blur-md">
+          <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
+          تم مسح الشفاه بدقة
+        </div>
+
+        <div class="absolute bottom-3 inset-x-4 flex items-center justify-between text-white text-xs">
+          <span class="bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
+            الدرجة: <strong id="ar-shade-label">04 - Rose Velours</strong>
+          </span>
+          <button type="button" onclick="toggleBeforeAfter()" class="bg-white/20 hover:bg-white/30 backdrop-blur-md px-3 py-1 rounded-full border border-white/30 text-[11px] font-semibold transition">
+            قبل / بعد
+          </button>
+        </div>
+      </div>
+
+      <!-- In-Modal Shade Switcher -->
+      <div class="p-4 bg-white space-y-3">
+        <span class="text-xs font-bold text-light-primary block">جربي درجات أخرى مباشرة:</span>
+        <div class="flex items-center gap-3 overflow-x-auto no-scrollbar py-1">
+          <button type="button" onclick="updateARShade('#D19A8B', '01 - Nude Pêche')" class="w-9 h-9 rounded-full border-2 border-white ring-2 ring-transparent hover:ring-accent shrink-0 shadow-sm" style="background-color: #D19A8B;"></button>
+          <button type="button" onclick="updateARShade('#B66A59', '02 - Spiced Chai')" class="w-9 h-9 rounded-full border-2 border-white ring-2 ring-transparent hover:ring-accent shrink-0 shadow-sm" style="background-color: #B66A59;"></button>
+          <button type="button" onclick="updateARShade('#B84D63', '03 - Dahlia Rose')" class="w-9 h-9 rounded-full border-2 border-white ring-2 ring-transparent hover:ring-accent shrink-0 shadow-sm" style="background-color: #B84D63;"></button>
+          <button type="button" onclick="updateARShade('#A63D40', '04 - Rose Velours')" class="w-9 h-9 rounded-full border-2 border-white ring-2 ring-accent shrink-0 shadow-md" style="background-color: #A63D40;"></button>
+          <button type="button" onclick="updateARShade('#78263E', '05 - Berry Royal')" class="w-9 h-9 rounded-full border-2 border-white ring-2 ring-transparent hover:ring-accent shrink-0 shadow-sm" style="background-color: #78263E;"></button>
+          <button type="button" onclick="updateARShade('#9E4732', '06 - Terra Cotta')" class="w-9 h-9 rounded-full border-2 border-white ring-2 ring-transparent hover:ring-accent shrink-0 shadow-sm" style="background-color: #9E4732;"></button>
+        </div>
+
+        <button type="button" onclick="confirmFromAR()" class="w-full py-3 rounded-full bg-light-primary text-light-on-primary font-bold text-xs hover:bg-black transition mt-2 flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+          <span>اعتماد هذه الدرجة وإضافتها للسلة</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Shared Engine JS -->
+  <script src="js/main.js"></script>
+
+  <!-- INTERACTIVE SCRIPTS -->
+  <script>
+    // Wishlist Toggle with Persistence
+    const wishlistBtn = document.getElementById('wishlist-btn');
+    const wishlistIcon = document.getElementById('wishlist-icon');
+    
+    function updateWishlistState() {
+      const isFav = Wishlist.has(1);
+      wishlistIcon.textContent = isFav ? 'favorite' : 'favorite_border';
+      wishlistIcon.style.color = isFav ? '#C68B77' : '';
+      wishlistIcon.style.fontVariationSettings = isFav ? "'FILL' 1" : "'FILL' 0";
+    }
+
+    wishlistBtn.addEventListener('click', () => {
+      Wishlist.toggle(1);
+      updateWishlistState();
+    });
+
+    // Gallery Switcher
+    function switchMedia(src, index) {
+      document.getElementById('main-product-img').src = src;
+      const buttons = document.querySelectorAll('.thumb-btn');
+      buttons.forEach((btn, i) => {
+        if (i === index) {
+          btn.classList.add('ring-2', 'ring-accent', 'ring-offset-2', 'opacity-100');
+          btn.classList.remove('ring-0', 'opacity-70');
+        } else {
+          btn.classList.remove('ring-2', 'ring-accent', 'ring-offset-2', 'opacity-100');
+          btn.classList.add('ring-0', 'opacity-70');
+        }
+      });
+    }
+
+    // Shade Selection
+    function selectShade(element, hex, name, tone) {
+      document.querySelectorAll('.shade-pill').forEach(el => {
+        el.classList.remove('active-shade', 'ring-2', 'ring-accent', 'ring-offset-2');
+        const checkIcon = el.querySelector('.material-symbols-outlined');
+        if (checkIcon) checkIcon.remove();
+        el.querySelector('span:last-child').classList.remove('font-bold', 'text-accent');
+        el.querySelector('span:last-child').classList.add('text-light-on-surface/70');
+      });
+
+      element.classList.add('active-shade', 'ring-2', 'ring-accent', 'ring-offset-2');
+      const disc = element.querySelector('div');
+      disc.innerHTML = '<span class="material-symbols-outlined text-white text-[16px] font-bold">check</span>';
+      
+      const label = element.querySelector('span:last-child');
+      label.classList.add('font-bold', 'text-accent');
+      label.classList.remove('text-light-on-surface/70');
+
+      document.getElementById('selected-shade-name').textContent = name;
+      document.getElementById('selected-shade-tone').textContent = tone;
+      document.getElementById('ar-shade-label').textContent = name;
+    }
+
+    // Filter Shades by Undertone
+    function filterShades(category) {
+      const pills = document.querySelectorAll('.shade-pill');
+      const filterBtns = document.querySelectorAll('.undertone-filter');
+      
+      filterBtns.forEach(btn => {
+        btn.classList.remove('bg-light-primary', 'text-light-on-primary');
+        btn.classList.add('bg-white', 'text-light-on-surface/80');
+      });
+      event.target.classList.add('bg-light-primary', 'text-light-on-primary');
+      event.target.classList.remove('bg-white', 'text-light-on-surface/80');
+
+      pills.forEach(pill => {
+        if (category === 'all' || pill.getAttribute('data-category') === category) {
+          pill.style.display = 'flex';
+        } else {
+          pill.style.display = 'none';
+        }
+      });
+    }
+
+    // AR Modal Handlers
+    const arModal = document.getElementById('ar-modal');
+    const openArBtn = document.getElementById('open-ar-btn');
+    const closeArBtn = document.getElementById('close-ar-btn');
+
+    openArBtn.addEventListener('click', () => {
+      arModal.classList.remove('hidden');
+      arModal.classList.add('flex');
+    });
+
+    closeArBtn.addEventListener('click', () => {
+      arModal.classList.add('hidden');
+      arModal.classList.remove('flex');
+    });
+
+    function updateARShade(hex, name) {
+      document.getElementById('ar-shade-label').textContent = name;
+    }
+
+    function toggleBeforeAfter() {
+      const img = document.getElementById('ar-preview-img');
+      if (img.src.includes('model_wearing_lipstick') || img.src.includes('ALJJyrDZf8B0fWFptY9TTpYxYQ7R1HNTzMpUyNq3ca1unYHz-CuVJbj0c-dzPvEf5cAOi2saexU2MUCdoP0szkReA-7s8OFenc5Ok4YD8fmp-uplH2Qid4gFrxnpCkmfLOWDLuL9HjSvIcsx0TazoT0JACUSFtKZ2h9U0N2nfxpoTljdNikwt7ys5R3CEF3EpPGGhe3UCk8JGdtl8pvfC6qyGhUGEY4mAv0tBRefqL_1QsSBBCzbbx8fHZlKQpEJDpzYRU4')) {
+        img.src = 'https://lh3.googleusercontent.com/aida/ALJJyrD54FzMwu6pHGFpFtMYD3lrsrMkJQb-IjqqilgX5z_5xRIk8M2WxynxBywkeYfmQFLiTwOBoPatSvQLOyalHbH9RP3cmq5ze2C6y2bUG9O9mY-GAPChZAJC_WvUJNwSDj65gBT3OpWFl8TL_naEPLb4LiyZjHNUVPPMiYoQJVTzI1HPvkKkUWnjZ9jOaWU4VsG-ljS-Go1ULqbIxb3ab5os9i60ZSj3LY3z-x2JOOmvwcG4T4aVA43oXQ8LZRzx9jk';
+      } else {
+        img.src = 'https://lh3.googleusercontent.com/aida/ALJJyrDZf8B0fWFptY9TTpYxYQ7R1HNTzMpUyNq3ca1unYHz-CuVJbj0c-dzPvEf5cAOi2saexU2MUCdoP0szkReA-7s8OFenc5Ok4YD8fmp-uplH2Qid4gFrxnpCkmfLOWDLuL9HjSvIcsx0TazoT0JACUSFtKZ2h9U0N2nfxpoTljdNikwt7ys5R3CEF3EpPGGhe3UCk8JGdtl8pvfC6qyGhUGEY4mAv0tBRefqL_1QsSBBCzbbx8fHZlKQpEJDpzYRU4';
+      }
+    }
+
+    // Add to Cart from AR Modal
+    function confirmFromAR() {
+      arModal.classList.add('hidden');
+      arModal.classList.remove('flex');
+      
+      const shade = document.getElementById('ar-shade-label').textContent;
+      Cart.add({
+        id: 1,
+        name: "Rouge Lumière Satin Hydrating",
+        price: 165,
+        originalPrice: 195,
+        image: document.getElementById('main-product-img').src,
+        shade: shade,
+        quantity: 1
+      });
+
+      const buyBtn = document.getElementById('buy-now-btn');
+      buyBtn.classList.add('bg-emerald-700');
+      buyBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">done</span><span>تمت الإضافة للحقيبة!</span>';
+      setTimeout(() => {
+        buyBtn.classList.remove('bg-emerald-700');
+        buyBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">shopping_bag</span><span>إضافة إلى الحقيبة</span>';
+      }, 2000);
+    }
+
+    // Upsell bundle
+    let bundleAdded = false;
+    function toggleBundle(btn) {
+      bundleAdded = !bundleAdded;
+      const totalLabel = document.getElementById('bottom-total-price');
+      if (bundleAdded) {
+        btn.textContent = '✓ مضاف';
+        btn.classList.add('bg-accent', 'text-white', 'border-accent');
+        totalLabel.textContent = '233 ر.س';
+      } else {
+        btn.textContent = '+ إضافة';
+        btn.classList.remove('bg-accent', 'text-white', 'border-accent');
+        totalLabel.textContent = '165 ر.س';
+      }
+    }
+
+    // Main Buy Now Button
+    document.getElementById('buy-now-btn').addEventListener('click', () => {
+      const shade = document.getElementById('selected-shade-name').textContent;
+      const currentPrice = bundleAdded ? 233 : 165;
+      const currentOriginal = bundleAdded ? 280 : 195;
+      const currentImg = document.getElementById('main-product-img').src;
+
+      Cart.add({
+        id: 1,
+        name: bundleAdded ? "Rouge Lumière Satin + محدد الشفاه المخملي" : "Rouge Lumière Satin Hydrating",
+        price: currentPrice,
+        originalPrice: currentOriginal,
+        image: currentImg,
+        shade: shade,
+        quantity: 1
+      });
+
+      const buyBtn = document.getElementById('buy-now-btn');
+      buyBtn.classList.add('bg-emerald-700');
+      buyBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">done</span><span>تمت الإضافة للحقيبة!</span>';
+      setTimeout(() => {
+        buyBtn.classList.remove('bg-emerald-700');
+        buyBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">shopping_bag</span><span>إضافة إلى الحقيبة</span>';
+      }, 2000);
+    });
+
+    // Smart quiz notification trigger
+    function triggerSmartQuiz() {
+      alert("جاري تشغيل محدد الدرجات الذكي: حددي لون العروق ونوع بشرتك لاقتراح الدرجة المطابقة.");
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateWishlistState();
+    });
+  </script>
+
+</body></html>
